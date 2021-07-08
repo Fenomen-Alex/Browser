@@ -1,5 +1,4 @@
 import React, {useEffect, useState} from 'react';
-import {OnSubmit} from "react-hook-form";
 
 type PropsType = {
   update: Function

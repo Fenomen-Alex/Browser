@@ -5,13 +5,19 @@ type TabsPropsType = {
   active: number
   choose: Function
   add: Function
+  close: Function
 }
 
-const Tabs = ({browsers, active, add, choose}: TabsPropsType): JSX.Element => {
+const Tabs = ({browsers, active, add, choose, close}: TabsPropsType): JSX.Element => {
   return (
       <div className="tabs">
         {browsers.map((browser, index) => (
-            <Tab key={index} isActive={active === index}>
+            <Tab
+                key={index}
+                isActive={active === index}
+                index={index}
+                close={close}
+            >
               <button onClick={() => choose(index)}>{browser}</button>
             </Tab>))}
         <Tab>
