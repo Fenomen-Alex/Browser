@@ -20,6 +20,11 @@ const App = () => {
     setBrowsers(newBrowsers);
     setActiveBrowser(newBrowsers.length - 1);
   }
+  const updateBrowser = (url: string) => {
+    const newBrowsers = [...browsers, ''];
+    newBrowsers[activeBrowser] = url;
+    setBrowsers(newBrowsers);
+  }
 
   return (
     <div className="app">
@@ -31,7 +36,10 @@ const App = () => {
             add={addBrowser}
         />
 
-        <AddressBar />
+        <AddressBar
+        update={updateBrowser}
+        url={url}
+        />
 
         <div className="viewport">
           {url ? (
