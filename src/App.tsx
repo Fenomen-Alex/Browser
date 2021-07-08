@@ -12,10 +12,24 @@ const App = () => {
 
   const url = browsers[activeBrowser];
 
+  const chooseBrowser = (id: number) => {
+    setActiveBrowser(id);
+  }
+  const addBrowser = () => {
+    const newBrowsers = [...browsers, ''];
+    setBrowsers(newBrowsers);
+    setActiveBrowser(newBrowsers.length - 1);
+  }
+
   return (
     <div className="app">
       <div className="browser">
-        <Tabs browsers={browsers} active={activeBrowser} />
+        <Tabs
+            browsers={browsers}
+            active={activeBrowser}
+            choose={chooseBrowser}
+            add={addBrowser}
+        />
 
         <AddressBar />
 

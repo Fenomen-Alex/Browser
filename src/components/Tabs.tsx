@@ -3,17 +3,19 @@ import React, {useState} from 'react';
 type TabsPropsType = {
   browsers: string[]
   active: number
+  choose: Function
+  add: Function
 }
 
-const Tabs = ({browsers, active}: TabsPropsType): JSX.Element => {
+const Tabs = ({browsers, active, add, choose}: TabsPropsType): JSX.Element => {
   return (
       <div className="tabs">
         {browsers.map((browser, index) => (
             <Tab key={index} isActive={active === index}>
-              <button>{browser}</button>
+              <button onClick={() => choose(index)}>{browser}</button>
             </Tab>))}
         <Tab>
-          <button>+</button>
+          <button onClick={() => add()}>+</button>
         </Tab>
       </div>
   );
